@@ -1,7 +1,10 @@
 const { MongoClient } = require('mongodb');
+require('dotenv').config();
 
-const uri =
-  'mongodb+srv://rushi:RushiMongo123@cluster0.y4rbybj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const uri = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
 
 async function run() {
   const client = new MongoClient(uri);
